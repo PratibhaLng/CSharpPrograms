@@ -14,7 +14,7 @@ namespace CSharpPrograms
 
                 int print;
                 Console.WriteLine("Enter Option\n 1: Swapping Two Numbers \n 2:Add Sub Multiply Divide Two Numbers  \n 3:Print multiplication Table \n 4:To Check whether Two Integers are Positive or Negative \n 5:Print a Pattern \n 6:Sum of Elements Stored in Array");
-                print = int.Parse(Console.ReadLine());
+                print = GetNumber();
                 switch (print)
                 {
                     case 1:
@@ -64,6 +64,31 @@ namespace CSharpPrograms
             while (UserChoice == "Yes");
         }
 
+
+        public static int GetNumber()
+        { 
+        bool isNumberValid = false;
+            int number=0 ;
+            while (isNumberValid == false)
+            {
+                Console.WriteLine("Enter the Number");
+                isNumberValid = int.TryParse(Console.ReadLine() ,out  number);
+                if(isNumberValid == false)
+                {
+                    Console.WriteLine("Enter only Numbers");
+                    Console.ReadKey();
+
+                }
+
+
+            }
+
+            return number;
+        
+        }
+
     }
+
+
 }
 
