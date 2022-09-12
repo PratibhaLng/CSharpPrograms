@@ -12,83 +12,78 @@ namespace CSharpPrograms
             do
             {
 
-                int print;
-                Console.WriteLine("Enter Option\n 1: Swapping Two Numbers \n 2:Add Sub Multiply Divide Two Numbers  \n 3:Print multiplication Table \n 4:To Check whether Two Integers are Positive or Negative \n 5:Print a Pattern \n 6:Sum of Elements Stored in Array");
-                print = GetNumber();
-                switch (print)
-                {
-                    case 1:
-                        swappingnumbers ss = new swappingnumbers();
-                        ss.Swapnos();
-                        break;
-                    case 2:
-                        Calculation cc = new Calculation();
-                        cc.Calc();
-                        break;
-                    case 3:
-                        MultiplicationTable mt = new MultiplicationTable();
-                        mt.Table();
-                        break;
-                    case 4:
-                        CompareIntegers.cmp();
 
-                        break;
-                    case 5:
-                        PrintPattern.Pattern();
-                        break;
-                    case 6:
-                        PrintSum.sum();
-                        break;
-                    default:
-                        Console.WriteLine("Invalid Option {0}", print);
-                        break;
+                Console.WriteLine("Select Option\n 1: Swapping Two Numbers \n 2:Add Sub Multiply Divide Two Numbers  \n 3:Print multiplication Table \n 4:To Check whether Two Integers are Positive or Negative \n 5:Print a Pattern \n 6:Sum of Elements Stored in Array");
+                String ss = Console.ReadLine();
 
-                }
-                do
+
+                if (int.TryParse(ss, out int print))
                 {
-                    Console.WriteLine("Do you want to continue-Yes or No");
-                    UserChoice = Console.ReadLine();
-                    if (UserChoice != "Yes" && UserChoice != "No")
+
+                    switch (print)
                     {
-                        Console.WriteLine("Invalid Choice,please say Yes or No");
+                        case 1:
+                            swappingnumbers sn = new swappingnumbers();
+                            sn.Swapnos();
+                            break;
+                        case 2:
+                            Calculation cc = new Calculation();
+                            cc.Calc();
+                            break;
+                        case 3:
+                            MultiplicationTable mt = new MultiplicationTable();
+                            mt.Table();
+                            break;
+                        case 4:
+                            CompareIntegers.cmp();
+
+                            break;
+                        case 5:
+                            PrintPattern.Pattern();
+                            break;
+                        case 6:
+                            PrintSum.sum();
+                            break;
+                        default:
+                            Console.WriteLine("Invalid Option {0}", print);
+                            break;
 
                     }
 
-
                 }
-                while (UserChoice != "Yes" && UserChoice != "No");
-            }
-
-
-
-            while (UserChoice == "Yes");
-        }
-
-
-        public static int GetNumber()
-        { 
-        bool isNumberValid = false;
-            int number=0 ;
-            while (isNumberValid == false)
-            {
-                Console.WriteLine("Enter the Number");
-                isNumberValid = int.TryParse(Console.ReadLine() ,out  number);
-                if(isNumberValid == false)
+                else
                 {
-                    Console.WriteLine("Enter only Numbers");
-                    Console.ReadKey();
-
+                    Console.WriteLine("Not A Valid Option......  ");
                 }
 
 
-            }
 
-            return number;
-        
+                    do
+                    {
+                        Console.WriteLine("Do you want to continue-Yes or No");
+                        UserChoice = Console.ReadLine().ToUpper();
+                        if (UserChoice != "YES" && UserChoice != "NO")
+                        {
+                            Console.WriteLine("Invalid Choice,please say YES or NO");
+
+                        }
+
+
+                    }
+                    while (UserChoice != "YES" && UserChoice != "NO");
+                }
+
+
+
+                while (UserChoice == "YES") ;
+            
+
+
+
+            
+
         }
 
-    }
+    }    }
 
-
-}
 

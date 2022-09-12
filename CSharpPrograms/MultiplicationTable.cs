@@ -9,39 +9,33 @@ namespace ProgramAssignments
     {
         public  void Table()
         {
+
+            Console.WriteLine("Enter a Number");
+            String ss= Console.ReadLine(); ;
+
             int number, i;
-           
-            number = GetNumber();
-            for (i = 1; i <= 10; i++)
+            if (int.TryParse(ss, out number))
             {
-                Console.Write("{0} x {1} = {2} \n", number, i, (number * i));
-
-            }
-
-            Console.ReadKey();
-        }
-
-        public int GetNumber()
-        { 
-        bool isNumberValid = false;
-            int number=0 ;
-            while (isNumberValid == false)
-            {
-                Console.WriteLine("Enter the Number");
-                isNumberValid = int.TryParse(Console.ReadLine() ,out  number);
-                if(isNumberValid == false)
+                for (i = 1; i <= 10; i++)
                 {
-                    Console.WriteLine("Enter only Numbers");
-                    Console.ReadKey();
+                    Console.Write("{0} x {1} = {2} \n", number, i, (number * i));
 
                 }
 
-
+            }
+            else
+            {
+                Console.WriteLine("Invalid Number Entered");
             }
 
-            return number;
-        
+            Console.ReadKey();
+
+
+
         }
+
+        
+        
 
     }
 }

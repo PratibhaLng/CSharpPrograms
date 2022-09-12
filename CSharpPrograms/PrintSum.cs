@@ -21,6 +21,7 @@ namespace Assignment
 
             for (i = 0; i < size; i++)
             {
+
                 arr[i] = Convert.ToInt32(Console.ReadLine());
             }
 
